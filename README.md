@@ -1,4 +1,6 @@
-# async-you (read: I see you)
+# async-you 
+
+**I see you**
 
 An introduction and guide to using https://github.com/caolan/async package.
 
@@ -9,5 +11,6 @@ An introduction and guide to using https://github.com/caolan/async package.
 3. Run `async_you`
 4. **.. profit!**
 
-<b><code>async-you</code></b> will run through a series of Node.js workshops. Starting at a basic *"HELLO WORLD"*.
+<b><code>async-you</code></b> will run through a series of Node.js workshops to teach you
+how to use the awesome [async](https://github.com/caolan/async) package.
 
