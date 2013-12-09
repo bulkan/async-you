@@ -1,0 +1,12 @@
+{yellow}{bold}Having trouble with a {appname} exercise?{/bold}{/yellow}
+
+  If you're looking for general help with Node.js, the #Node.js
+  channel on Freenode IRC is usually a great place to find someone
+  willing to help. There is also the Node.js Google Group:
+    https://groups.google.com/forum/#!forum/nodejs
+
+{yellow}{bold}Found a bug with {appname} or just want to contribute?{/bold}{/yellow}
+
+  The official repository for {appname} is:
+    https://github.com/bulkan/async-you/
+  Feel free to file a bug report or (preferably) a pull request.

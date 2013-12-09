@@ -1,0 +1,17 @@
+{
+  "name": "async-you",
+  "version": "0.0.1",
+  "description": "Learn async via a set of self-guided workshops.",
+  "author": "Bulkan Evcimen <bulkan@gmail.com> (https://github.com/bulkan)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bulkan/async-you.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "workshopper": "~0.4.1",
+    "async": "~0.2.9"
+  },
+  "bin": "./async_you.js",
+  "preferGlobal": true
+}
