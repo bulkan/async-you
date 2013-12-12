@@ -1,0 +1,6 @@
+Occasionally you will need to run a series of asynchronous calls without caring
+about the return data but check if any throw errors (sometimes not even that).
+
+Create a program that will receive two URLs as the first and second command-line arguments.
+Then using `http.get` create GET requests to these URL's console.log any
+errors.
