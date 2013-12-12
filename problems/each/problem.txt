@@ -1,6 +1,32 @@
 Occasionally you will need to run a series of asynchronous calls without caring
 about the return data but check if any throw errors (sometimes not even that).
+For example the following will do three
+
+    var http = require('http')
+      , async = require('async');
+
+    async.each(['cat', 'meerkat', 'penguin'], function(item, done){
+      var opts = {
+        hostname: 'http://httpbin.org',
+        path: '/post',
+        method: 'POST'
+      };
+      var req = http.request(opts, function(res){
+        res.on('data', function(chunk){
+        });
+
+        res.on('end', function(){
+         return done();
+        });
+      });
+
+      req.write(item);
+      req.end();
+    },
+    function(err){
+      if (err) console.log(err);
+    });
 
 Create a program that will receive two URLs as the first and second command-line arguments.
-Then using `http.get` create GET requests to these URL's console.log any
+Then using `http.get` create two GET requests to these URL's console.log any
 errors.
