@@ -5,8 +5,7 @@ const workshopper = require('workshopper')
 
 workshopper({
   name: "async-you",
-  title: "async you",
-  subtitle: "Learn to use the async module in Node",
+  title: "async you - learn to use the async package",
   appDir: __dirname,
   helpFile: path.join(__dirname, "help.txt")
 }).init();
