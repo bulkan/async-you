@@ -4,7 +4,10 @@ the results. For example creating a bunch of test users and persisting
 them into a database.
 
 Write a program that will receive a command line argument containing
-the url. Using `http.request` send a POST request to url + '/users/create'
+the url. Using `http.request` send a POST request to
+
+    url + '/users/create'
+
 with the body containing a JSON.stringify'ed object;
 
     {user_id : 1}
@@ -12,5 +15,8 @@ with the body containing a JSON.stringify'ed object;
 Do this five times with each the `user_id` property being incremented starting
 at 1.
 
-Once these requests are done send a GET request to url + '/users' and console.log
-the response body.
+Once these requests are done send a GET request to 
+
+    url + '/users'
+
+and console.log the response body.
