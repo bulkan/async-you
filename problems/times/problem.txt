@@ -1,10 +1,5 @@
-I am sure you have come across a situation where you had to do
-the same {italic}asyncrounous{/italic} call a few times accumulating
-the results. For example creating a bunch of test users and persisting
-them into a database.
-
-Write a program that will receive a command line argument containing
-the url. Using `http.request` send a POST request to
+Write a program that will receive two command line arguments containing
+the hostname and port. Using `http.request` send a POST request to
 
     url + '/users/create'
 
@@ -20,3 +15,6 @@ Once these requests are done send a GET request to
     url + '/users'
 
 and console.log the response body.
+
+
+{italic}HINTS{/italic}: use async.times and http.request

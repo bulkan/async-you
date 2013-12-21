@@ -1,34 +1,41 @@
 var http = require('http')
-  , async = require('async');
-
-var url = process.argv[2];
+  , qs = require('querystring')
+  , async = require('async')
+  , hostname = process.argv[2]
+  , port = process.argv[3]
+  , url = 'http://' +  hostname + ':' + port;
 
 async.series([
   function(done){
     function _addUser(user_id, cb){
-      var opts = {
-        url: url,
-        path: '/users/create'
+
+      var postdata = JSON.stringify({'user_id': user_id}),
+      opts = {
+        hostname: hostname,
+        port: port,
+        path: '/users/create',
         method: 'POST',
+        headers: {
+          'Content-Length': postdata.length
+        }
       };
 
       var req = http.request(opts, function(res){
-        res.on('data', function(chunk){
-        });
+        res.on('data', function(chunk){})
 
         res.on('end', function(){
           cb();
-        });
+        }); 
       });
 
       req.on('error', cb);
 
-      req.write(JSON.stringify({'user_id': user_id}));
+      req.write(postdata);
       req.end();
     }
 
     async.times(5, function(n, next){
-      _addUser(n, function(err){
+      _addUser(++n, function(err){
         next(err);
       });
     }, function(err){
