@@ -4,5 +4,6 @@
   "EACH",
   "MAP",
   "TIMES",
-  "REDUCE"
+  "REDUCE",
+  "WHILST"
 ]
