@@ -18,7 +18,7 @@ async.series({
   },
   requestTwo: function(done){
     var body = '';
-    http.get(process.argv[2], function(res){
+    http.get(process.argv[3], function(res){
       res.on('data', function(chunk){
         body += chunk.toString();
       });
