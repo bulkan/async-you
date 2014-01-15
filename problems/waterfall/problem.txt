@@ -20,7 +20,7 @@ the next waterfall function via the callback. The second function in the waterfa
 accepts the body as a parameter and JSON.parse's it to get to the port
 property then it does another GET request.
 
-    var http = require('http'),
+    var http = require('http')
       , async = require('async');
 
     async.waterfall([
