@@ -7,7 +7,7 @@ with the body containing a JSON.stringify'ed object;
 
     {user_id : 1}
 
-Do this five times with each the `user_id` property being incremented starting
+Do this five times with each of the `user_id` property being incremented starting
 at 1.
 
 Once these requests are done send a GET request to 
@@ -16,5 +16,4 @@ Once these requests are done send a GET request to
 
 and console.log the response body.
 
-
-{italic}HINTS{/italic}: use async.times and http.request
+{italic}HINTS{/italic}: use async.series, async.times and http.request
