@@ -14,17 +14,17 @@ Hopefully by the end this workshop you will understand the main functions that _
 
 1. Install [Node.js](http://nodejs.org/)
 2. Run `sudo npm install async-you -g`
-3. Run `async_you`
+3. Run `async-you`
 
 ## Usage
 
 #### 1. Selecting a problem to work on
 
-Once the workshop is installed, run `async_you` to print a menu
+Once the workshop is installed, run `async-you` to print a menu
 where you can select a problem to work on.
 
 ```
-$ async_you
+$ async-you
 ```
 
 Problems are listed in rough order of difficulty. You are advised to complete them in order, as later problems
@@ -41,7 +41,7 @@ Use the workshop's `run` command to point the workshop at your solution file. Yo
 and passed the problem input. This usually won't perform any validation, it will only show the program output.
 
 ```
-$ async_you run mysolution.js
+$ async-you run mysolution.js
 ```
  
 #### 4. Verifying your solution
@@ -50,7 +50,7 @@ Your solution will be verified against the output of the 'official' solution.
 If all of the output matches, then you have successfully solved the problem!
 
 ```
-$ async_you verify mysolution.js
+$ async-you verify mysolution.js
 ```
 
 ## Stuck?
