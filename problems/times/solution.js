@@ -5,8 +5,8 @@ var http = require('http')
   , port = process.argv[3]
   , url = 'http://' +  hostname + ':' + port;
 
-async.series([
-  function(done){
+async.series({
+  post: function(done){
     function _addUser(user_id, cb){
 
       var postdata = JSON.stringify({'user_id': user_id}),
@@ -25,7 +25,7 @@ async.series([
 
         res.on('end', function(){
           cb();
-        }); 
+        });
       });
 
       req.on('error', cb);
@@ -44,7 +44,7 @@ async.series([
     });
   },
 
-  function(done){
+  get: function(done){
     http.get(url + '/users', function(res){
       var body = "";
       res.on('data', function(chunk){
@@ -57,7 +57,7 @@ async.series([
     }).on('error', done);
   }
 
-], function(err, result){
+}, function(err, result){
   if (err) return console.log(err);
-  console.log(result);
+  console.log(result.get);
 });
