@@ -3,7 +3,7 @@ var http = require('http')
 
 var requestBody = '';
 
-var count = 1;
+var count = 0;
 
 async.whilst(
   function() {
@@ -15,10 +15,10 @@ async.whilst(
     http.get(process.argv[2], function(res){
       res.on('data', function(chunk){
         body += chunk.toString();
-        ++count;
       });
 
       res.on('end', function(){
+        ++count;
         requestBody = body;
         done();
       });
