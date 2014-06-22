@@ -56,7 +56,7 @@ property then it does another GET request.
             cb(null, body);
           });
 
-        }).on('error'), function(e) {
+        }).on('error', function(err) {
           cb(err);
         });
       }
