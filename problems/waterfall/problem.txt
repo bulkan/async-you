@@ -15,7 +15,7 @@ the other with each call dependant on the result of previous asynchronous call.
 We can do this with the help of async.waterfall.
 
 For example the following code will do a GET request to http://localhost:3131
-in the first waterfall function. The response body is pased as an argument to
+in the first waterfall function. The response body is passed as an argument to
 the next waterfall function via the callback. The second function in the waterfall
 accepts the body as a parameter and JSON.parse's it to get to the port
 property then it does another GET request.
