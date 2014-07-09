@@ -1,4 +1,4 @@
-In Node.js and browsers there is three ways to do {bold}asynchronous{/bold} JavaScript.
+In Node.js and browsers there are three ways to do {bold}asynchronous{/bold} JavaScript.
 
 The first way leads to what we call {italic}Callback Hell{/italic}. Callback Hell
 can be minimized by following the tips at http://callbackhell.com.
@@ -11,7 +11,7 @@ we are still writing callbacks but without falling into the callback hell or
 adding another layer of abstraction with promises.
 
 More often than not you will need to do multiple asynchronous calls one after
-the other with each call dependant on the result of previous asynchronous call.
+the other with each call dependent on the result of previous asynchronous call.
 We can do this with the help of async.waterfall.
 
 For example the following code will do a GET request to http://localhost:3131
@@ -69,5 +69,5 @@ property then it does another GET request.
 
 In this problem you will need to write a program that first reads the contents of a file.
 The path will be provided as the first command-line argument to your program.
-The file will contain a single URL. Using `http.get` create GET request to to this url and
-console.log the response body.
+The file will contain a single URL. Using `http.get`, create a GET request to this url
+and console.log the response body.
