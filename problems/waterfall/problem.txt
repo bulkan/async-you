@@ -37,7 +37,7 @@ property then it does another GET request.
           res.on('end', function(){
             cb(null, body);
           });
-        }).on('error'), function(e) {
+        }).on('error', function(err) {
           cb(err);
         });
       },
