@@ -1,13 +1,13 @@
-With {italic}async.each{/italic} results of the asynchronous function is
+With {italic}async.each{/italic}, the results of the asynchronous function are
 lost.
 
-This is were {italic}async.map{/italic} comes in. It does the same thing as
-{italic}async.each{/italic} by calling an asynchronous iterator function on 
-an array but collects the results of the asynchronous iterator function 
-and passes it to the results callback. The results is an array that is in 
-the same order as the original array.
+This is where {italic}async.map{/italic} comes in. It does the same thing as
+{italic}async.each{/italic}, by calling an asynchronous iterator function on
+an array, but collects the results of the asynchronous iterator function 
+and passes them to the results callback. The results are in an array that is 
+in the same order as the original array.
 
-For example the example in the EACH problem can be written as;
+For example, the example in the EACH problem can be written as:
 
     var http = require('http')
       , async = require('async');
@@ -40,4 +40,4 @@ For example the example in the EACH problem can be written as;
 Write a program that will receive two command-line arguments to two URLs.
 Using {italic}http.get{/italic} create two GET requests to these URLs.
 You will need to use {italic}async.map{/italic} and console.log the
-result array.
+results array.
