@@ -9,8 +9,8 @@ module.exports = function () {
         var body = "";
 
         if (req.method.toLowerCase() === 'post') {
-            req.on('data', function(chuck){
-                body += chuck.toString();
+            req.on('data', function(chunk){
+                body += chunk.toString();
             });
 
             req.on('end', function(){
