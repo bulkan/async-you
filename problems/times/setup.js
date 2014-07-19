@@ -28,7 +28,7 @@ module.exports = function () {
   var server2 = http.createServer(
     function(req, res){
       handleRequests(req, res, solutionUsers);
-      }
+    }
   ).listen(9346);
 
   return {
