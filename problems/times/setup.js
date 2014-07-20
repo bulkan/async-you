@@ -1,15 +1,15 @@
 var http = require('http');
 
 module.exports = function () {
-  var users = [];
+  var submissionUsers = [];
+  var solutionUsers   = [];
 
-  var server = http.createServer(function (req, res) {
+  function handleRequests(req, res, users) {
     var body = "";
     if (req.method.toLowerCase() === 'post') {
-      req.on('data', function(chuck){
-        body += chuck.toString();
+      req.on('data', function(chunk){
+        body += chunk.toString();
       });
-
       req.on('end', function(){
         users.push(JSON.parse(body));
         res.end();
@@ -17,12 +17,28 @@ module.exports = function () {
     } else {
       res.end(JSON.stringify({'users': users}));
     }
-  }).listen(9345);
+  }
+
+  var server1 = http.createServer(
+    function(req, res){
+      handleRequests(req, res, submissionUsers);
+    }
+  ).listen(9345);
+
+  var server2 = http.createServer(
+    function(req, res){
+      handleRequests(req, res, solutionUsers);
+    }
+  ).listen(9346);
 
   return {
-      args  : ['localhost', 9345]
+      submissionArgs  : ['localhost', 9345]
+    , solutionArgs    : ['localhost', 9346]
     , stdin : null
     , long  : true
-    , close : server.close.bind(server)
+    , close : function() {
+        server1.close();
+        server2.close();
+      }
   }
-}
+};
