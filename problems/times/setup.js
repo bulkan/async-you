@@ -15,6 +15,9 @@ module.exports = function () {
         res.end();
       });
     } else {
+
+      users.sort(function(a, b) { return a.user_id - b.user_id; });
+
       res.end(JSON.stringify({'users': users}));
     }
   }
