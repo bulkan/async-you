@@ -35,7 +35,7 @@ properties. The above example can be written like so:
       two: function(done){
         done(null, '2');
       }
-    }, function(err, result){
+    }, function(err, results){
       console.log(results);
       // results will be {one: 1, two: 2}
     });
