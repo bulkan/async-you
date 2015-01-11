@@ -14,5 +14,5 @@ async.each(process.argv.slice(2), function(item, done){
   });
 },
 function(err){
-  if(err) console.log(err);
+  if(err) console.error(err);
 });
