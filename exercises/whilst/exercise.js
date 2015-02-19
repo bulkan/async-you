@@ -1,39 +1,62 @@
-var http = require('http');
+var http          = require('http')
+  , async         = require('async')
+  , exercise      = require('workshopper-exercise')()
+  , filecheck     = require('workshopper-exercise/filecheck')
+  , execute       = require('workshopper-exercise/execute')
+  , comparestdout = require('workshopper-exercise/comparestdout')
 
 
-var max = Math.floor(Math.random() * 5) + 1;
-max = (max == 1 ? 2: max)
+// checks that the submission file actually exists
+exercise = filecheck(exercise)
 
-var port1= 9345, port2 = 9346;
+// execute the solution and submission in parallel with spawn()
+exercise = execute(exercise)
 
-module.exports = function () {
-  var servers = [];
+// compare stdout of solution and submission
+exercise = comparestdout(exercise)
 
-  function startServer(port){
-    var count = 0;
+
+// set up the data file to be passed to the submission
+exercise.addSetup(function (mode, callback) {
+  // mode == 'run' || 'verify'
+
+  var max = Math.min(2, Math.floor(Math.random() * 5) + 1)
+
+  var ports = [9345, 9346], servers = this.servers = []
+
+  function startServer(port, serverCallback) {
+    var count = 0
     var server = http.createServer(function (req, res) {
       if (count >= max) {
-        res.end('meerkat');
+        res.end('meerkat')
       } else {
         ++count;
-        res.end();
+        res.end()
       }
-    }).listen(port);
+    }).listen(port, serverCallback);
     servers.push(server);
   }
 
-  startServer(port1);
-  startServer(port2);
+  this.submissionArgs = [ "http://localhost:" + ports[0] ]
+  this.solutionArgs   = [ "http://localhost:" + ports[1] ]
 
-  function stopServers(){
-    servers.forEach(function(server){ server.close(); });
+  async.each(ports, startServer, callback)
+})
+
+
+// cleanup for both run and verify
+exercise.addCleanup(function (mode, passed, callback) {
+  // mode == 'run' || 'verify'
+
+  if (!this.servers.length)
+    return process.nextTick(callback)
+
+  function closeServer(server, serverCallback) {
+    server.close(serverCallback);
   }
 
-  return {
-      submissionArgs: 'http://localhost:' + port1
-    , solutionArgs: 'http://localhost:' + port2
-    , stdin : null
-    , long  : true
-    , close : stopServers
-  }
-}
+  async.each(this.servers, closeServer, callback);
+})
+
+
+module.exports = exercise

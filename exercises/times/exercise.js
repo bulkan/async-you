@@ -1,8 +1,40 @@
-var http = require('http');
+var http          = require('http')
+  , async         = require('async')
+  , exercise      = require('workshopper-exercise')()
+  , filecheck     = require('workshopper-exercise/filecheck')
+  , execute       = require('workshopper-exercise/execute')
+  , comparestdout = require('workshopper-exercise/comparestdout')
 
-module.exports = function () {
-  var submissionUsers = [];
-  var solutionUsers   = [];
+
+// checks that the submission file actually exists
+exercise = filecheck(exercise)
+
+// execute the solution and submission in parallel with spawn()
+exercise = execute(exercise)
+
+// compare stdout of solution and submission
+exercise = comparestdout(exercise)
+
+
+// set up the data file to be passed to the submission
+exercise.addSetup(function (mode, callback) {
+  // mode == 'run' || 'verify'
+
+  var ports = [9345, 9346], servers = this.servers = [], users = [[], []],
+    index = 0
+
+  function startServer(serverUsers, serverCallback) {
+    var count = 0
+    var server = http.createServer(function (req, res) {
+      handleRequests(req, res, serverUsers)
+    }).listen(ports[index++], serverCallback)
+    servers.push(server);
+  }
+
+  this.submissionArgs = [ "localhost", ports[0] ]
+  this.solutionArgs   = [ "localhost", ports[1] ]
+
+  async.each(users, startServer, callback)
 
   function handleRequests(req, res, users) {
     var body = "";
@@ -21,27 +53,22 @@ module.exports = function () {
       res.end(JSON.stringify({'users': users}));
     }
   }
+})
 
-  var server1 = http.createServer(
-    function(req, res){
-      handleRequests(req, res, submissionUsers);
-    }
-  ).listen(9345);
 
-  var server2 = http.createServer(
-    function(req, res){
-      handleRequests(req, res, solutionUsers);
-    }
-  ).listen(9346);
+// cleanup for both run and verify
+exercise.addCleanup(function (mode, passed, callback) {
+  // mode == 'run' || 'verify'
 
-  return {
-      submissionArgs  : ['localhost', 9345]
-    , solutionArgs    : ['localhost', 9346]
-    , stdin : null
-    , long  : true
-    , close : function() {
-        server1.close();
-        server2.close();
-      }
+  if (!this.servers.length)
+    return process.nextTick(callback)
+
+  function closeServer(server, serverCallback) {
+    server.close(serverCallback);
   }
-};
+
+  async.each(this.servers, closeServer, callback);
+})
+
+
+module.exports = exercise

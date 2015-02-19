@@ -1,11 +1,19 @@
+## Challenge
+
 Write a program that will receive an URL as the first command line argument.
-To this URL send a GET request using {italic}http.get{/italic} with a query
-parameter named {bold}number{/bold} which should be set consecutively to one
-of the values in the following array
 
-    ['one', 'two', 'three']
+To this URL, for each of the values in the following array, send a GET request
+using `http.get` with a query parameter named `number` set at the proper value:
 
-Convert the response body to a Number and add it to the previous value. 
-console.log the reduced value.
+```js
+['one', 'two', 'three']
+```
 
-{italic}TIPS:{/italic} use async.reduce
+Each time, convert the response body to `Number` and add it to the previous value.
+`console.log` the final reduced value.
+
+## Hints
+
+Use `async.reduce`:
+
+  https://github.com/caolan/async#reduce
