@@ -1,6 +1,6 @@
 ## Challenge
 
-Write a program that will receive an URL as the first command line argument.
+Write a program that will receive a URL as the first command line argument.
 
 To this URL, for each of the values in the following array, send a GET request
 using `http.get` with a query parameter named `number` set at the proper value:
