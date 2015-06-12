@@ -24,7 +24,7 @@ async.waterfall([
       done(e);
     });
   }
-], function(err, result){
+], function done(err, result){
   if (err) return console.error(err);
   console.log(result);
 });

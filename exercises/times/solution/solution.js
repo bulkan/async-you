@@ -11,7 +11,7 @@ async.series({
       _addUser(++n, function(err){
         next(err);
       });
-    }, function(err){
+    }, function next(err){
       if (err) return done(err);
       done(null, 'saved');
     });
@@ -30,13 +30,13 @@ async.series({
     }).on('error', done);
   }
 
-}, function(err, result){
+}, function done(err, result){
   if (err) return console.log(err);
   console.log(result.get);
 });
 
 
-function _addUser(user_id, cb){
+function _addUser(user_id, next){
   var postdata = JSON.stringify({'user_id': user_id}),
   opts = {
     hostname: hostname,
@@ -52,7 +52,7 @@ function _addUser(user_id, cb){
     res.on('data', function(chunk){})
 
     res.on('end', function(){
-      cb();
+      next();
     });
   });
 

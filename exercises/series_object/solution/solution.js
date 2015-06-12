@@ -9,7 +9,7 @@ async.series({
     fetchURL(process.argv[3], done);
   }
 },
-function(err, result){
+function done(err, result){
   if (err) return console.error(err);
   console.log(result);
 });
