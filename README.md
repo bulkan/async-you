@@ -13,8 +13,9 @@ Hopefully by the end this workshop you will understand the main functions that _
 ## Installation
 
 1. Install [Node.js](http://nodejs.org/)
-2. Run `sudo npm install async-you -g`
-3. Run `async-you`
+2. Run `npm install async`
+3. Run `npm install async-you -g` , use `sudo` if you have permissions issues.
+4. Run `async-you` to start the program!
 
 ## Usage
 
