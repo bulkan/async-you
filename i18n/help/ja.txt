@@ -1,0 +1,13 @@
+{yellow}{bold}{appname}の演習でトラブルが起きましたか?{/bold}{/yellow}
+
+  Node.jsの一般的なヘルプを探しているなら、Freenode IRCの
+  #Node.jsチャネルで誰かが助けてくれるでしょう。
+  Node.jsのGoogle Groupもあります。
+
+        https://groups.google.com/forum/#!forum/nodejs
+
+{yellow}{bold}{appname}のバグを見つけたり、貢献したい時には?{/bold}{/yellow}
+
+  {appname}のオフィシャルリポジトリはこちらです:
+    https://github.com/bulkan/async-you/
+  バグレポートや、改善のプルリクエストはお気軽にどうぞ。
