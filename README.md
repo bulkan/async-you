@@ -56,7 +56,7 @@ $ async-you verify mysolution.js
 
 ## Stuck?
 
-Feedback and critisism is welcome, please log your troubles in [issues](https://github.com/bulkan/async-you).
+Feedback and criticism is welcome, please log your troubles in [issues](https://github.com/bulkan/async-you).
 
 ## Resources
 
