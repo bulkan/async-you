@@ -1,0 +1,13 @@
+{
+  "title": "async you - apprenez à utiliser le module async",
+  "subtitle" : "\u001b[23mSélectionnez un exercice et tapez \u001b[3mEnter\u001b[23m pour démarrer",
+  "exercise": {
+    "WATERFALL": "waterfall",
+    "SERIES OBJECT": "series avec objet",
+    "EACH": "each",
+    "MAP": "map",
+    "TIMES": "times",
+    "REDUCE": "reduce",
+    "WHILST": "whilst"
+  }
+}

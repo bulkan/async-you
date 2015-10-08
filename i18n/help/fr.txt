@@ -1,0 +1,15 @@
+{yellow}{bold}Un souci avec un exercice {appname} ?{/bold}{/yellow}
+
+  Si vous cherchez de l’aide générale sur Node.js, le canal Freenode IRC
+  #Node.js est souvent un super endroit ou commencer à chercher quelqu’un
+  qui voudra bien vous aider.  Il y a aussi le Google Group Node.js :
+
+    https://groups.google.com/forum/#!forum/nodejs
+
+{yellow}{bold}Vous avez trouvé un bogue dans {appname} ou voulez simplement contribuer ?{/bold}{/yellow}
+
+  Le dépôt officel de {appname} est ici :
+
+    https://github.com/bulkan/async-you/
+
+  N’hésitez pas à signaler un bogue ou (encore mieux) à proposer une {italic}pull request{/italic}.

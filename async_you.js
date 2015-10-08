@@ -5,7 +5,7 @@ const workshopper = require('workshopper')
 
 workshopper({
   name: "async-you",
-  title: "async you - learn to use the async package",
   appDir: __dirname,
-  helpFile: path.join(__dirname, "help.txt")
-}).init();
+  languages: ['en', 'fr'],
+  helpFile: path.join(__dirname, "./i18n/help/{lang}.txt")
+});
