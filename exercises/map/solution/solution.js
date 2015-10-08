@@ -13,7 +13,7 @@ async.map(process.argv.slice(2), function(url, done){
     });
   });
 },
-function(err, results){
+function done(err, results){
   if (err) return console.log(err);
   // results is an array of the response bodies in the same order
   console.log(results);
