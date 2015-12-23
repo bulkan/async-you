@@ -13,6 +13,6 @@ async.each(process.argv.slice(2), function(item, done){
     done(err);
   });
 },
-function done(err){
-  if(err) console.log(err);
+function(err){
+  if(err) console.error(err);
 });
