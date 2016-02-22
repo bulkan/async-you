@@ -56,7 +56,9 @@ function _addUser(user_id, next){
     });
   });
 
-  req.on('error', cb);
+  req.on('error', function(err){
+    next(err);
+  });
 
   req.write(postdata);
   req.end();
