@@ -35,5 +35,5 @@ function(err){
 Create a program that will receive two URLs as the first and second command-line
 arguments.
 
-Then using `http.get`, create two GET requests to these URLs and `console.log`
+Then using `http.get`, create two GET requests, one to each URL, and `console.log`
 any errors.
