@@ -10,7 +10,7 @@ async.reduce(['one', 'two', 'three'], 0, function(memo, item, done){
     });
 
     res.on('end', function(){
-      callback(null, memo + Number(body));
+      done(null, memo + Number(body));
     });
   }).on('error', done);
 
