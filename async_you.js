@@ -6,6 +6,6 @@ const workshopper = require('workshopper')
 workshopper({
   name: "async-you",
   appDir: __dirname,
-  languages: ['en', 'fr'],
+  languages: ['en', 'fr', 'ru'],
   helpFile: path.join(__dirname, "./i18n/help/{lang}.txt")
 });
