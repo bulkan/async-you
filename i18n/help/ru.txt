@@ -1,0 +1,12 @@
+{yellow}{bold}Есть проблемы с приложением {appname}?{/bold}{/yellow}
+
+  Если ты ищешь помощь с Node.js, канал #Node.js
+  на Freenode IRC - это отличное место для поиска желающих помочь.
+  Здесь также есть Node.js Google Group:
+    https://groups.google.com/forum/#!forum/nodejs
+
+{yellow}{bold}Нашел баг в приложении {appname} или просто хочешь помочь в развитии проекта?{/bold}{/yellow}
+
+  Официальный репозиторий для приложения {appname}:
+    https://github.com/bulkan/async-you/
+  Не стесьняйтесь отправить отчет об ошибке или (предпочтительно) пулл-реквест.

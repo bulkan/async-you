@@ -1,0 +1,13 @@
+{
+  "title": "async you - изучите как использовать пакет async",
+  "subtitle": "\u001b[23mВыберите упражнение и нажмите клавишу \u001b[3mEnter\u001b[23m для начала",
+  "exercise": {
+    "WATERFALL": "waterfall",
+    "SERIES OBJECT": "series object",
+    "EACH": "each",
+    "MAP": "map",
+    "TIMES": "times",
+    "REDUCE": "reduce",
+    "WHILST": "whilst"
+  }
+}
