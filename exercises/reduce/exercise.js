@@ -24,7 +24,9 @@ exercise.addSetup(function (mode, callback) {
 
   this.server = http.createServer(function (req, res) {
     var number = url.parse(req.url, true).query.number
-    res.end((numbers[number]).toString())
+    if(numbers[number])
+      return res.end((numbers[number]).toString())
+    res.end("-1")
   })
 
   this.server.listen(9345, callback)
