@@ -9,9 +9,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "async": "^0.9.0",
+    "async": "^2.5.0",
     "workshopper-adventure": "^6.0.2",
     "workshopper-exercise": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=5.0.0"
   },
   "bin": "./async_you.js",
   "preferGlobal": true
