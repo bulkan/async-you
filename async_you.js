@@ -6,7 +6,7 @@ const path = require('path');
 const workshop = workshopper({
   name: "async-you",
   appDir: __dirname,
-  languages: ['en', 'fr', 'ru'],
+  languages: ['en', 'fr', 'ru', 'uk'],
   helpFile: path.join(__dirname, "./i18n/help/{lang}.txt"),
   header: require('workshopper-adventure/default/header'),
   footer: require('workshopper-adventure/default/footer')
