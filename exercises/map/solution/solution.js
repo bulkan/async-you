@@ -1,20 +1,25 @@
-var http = require('http')
-  , async = require('async');
+"use strict";
+const { get } = require("http");
+const async = require("async");
+const concat = require("concat-stream");
+const { pipeline } = require("stream");
 
-async.map(process.argv.slice(2), function(url, done){
-  var body = '';
-  http.get(url, function(res){
-    res.on('data', function(chunk){
-      body += chunk.toString();
-    });
-
-    res.on('end', function(){
-     return done(null, body);
-    });
-  });
-},
-function done(err, results){
-  if (err) return console.log(err);
-  // results is an array of the response bodies in the same order
-  console.log(results);
-});
+async.map(
+  process.argv.slice(2),
+  function (url, done) {
+    get(url, (res) => {
+      res.setEncoding("utf-8");
+      pipeline(
+        res,
+        concat((data) => done(null, data)),
+        (err) => {
+          if (err) return done(err);
+        }
+      );
+    }).on("error", done);
+  },
+  (err, results) => {
+    if (err) console.error(err);
+    console.log(results);
+  }
+);
