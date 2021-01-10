@@ -1,30 +1,36 @@
-var fs = require('fs')
-  , http = require('http')
-  , async = require('async');
+"use  strict";
+const { get } = require("http");
+const async = require("async");
+const concat = require("concat-stream");
+const fs = require("fs");
+const { pipeline } = require("stream");
 
-async.waterfall([
-  function(done){
-    fs.readFile(process.argv[2], function(err, data){
-      if (err) return done(err);
-      done(null, data)
-    });
-  },
-
-  function(data, done){
-    var body = '';
-    http.get(data.toString().trimRight(), function(res){
-      res.on('data', function(chunk){
-        body += chunk.toString();
-      });
-
-      res.on('end', function(chunk){
-        done(null, body);
-      });
-    }).on('error', function(e){
-      done(e);
-    });
+async.waterfall(
+  [
+    function (done) {
+      pipeline(
+        fs.createReadStream(process.argv[2], "utf-8"),
+        concat((data) => done(null, data)),
+        (err) => {
+          if (err) return done(err);
+        }
+      );
+    },
+    function (url, done) {
+      get(url, (res) => {
+        res.setEncoding("utf-8");
+        pipeline(
+          res,
+          concat((data) => done(null, data)),
+          (err) => {
+            if (err) return done(err);
+          }
+        );
+      }).on("error", done);
+    },
+  ],
+  function (err, result) {
+    if (err) return console.error(err);
+    console.log(result);
   }
-], function done(err, result){
-  if (err) return console.error(err);
-  console.log(result);
-});
+);
