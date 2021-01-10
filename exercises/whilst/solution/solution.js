@@ -1,17 +1,18 @@
-var http = require('http')
+"use strict"
+const http = require('http')
   , async = require('async');
 
-var requestBody = '';
+let requestBody = '';
 
-var count = 0;
+let count = 0;
 
 async.whilst(
-  function() {
-    return !/meerkat/.test(requestBody.trim());
-  },
+  function(cb) {
+    cb(null,!/meerkat/.test(requestBody.trim()));
+  },//async v3.x.x
 
   function(done){
-    var body = '';
+    let body = '';
     http.get(process.argv[2], function(res){
       res.on('data', function(chunk){
         body += chunk.toString();
