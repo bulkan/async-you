@@ -1,18 +1,18 @@
-var http = require('http')
-  , async = require('async');
+"use strict";
+const { get } = require("http");
+const async = require("async");
 
-async.each(process.argv.slice(2), function(item, done){
-  http.get(item, function(res){
-    res.on('data', function(chunk){
-    });
-
-    res.on('end', function(){
-      done(null);
-    });
-  }).on('error', function(err){
-    done(err);
-  });
-},
-function(err){
-  if(err) console.error(err);
-});
+async.each(
+  process.argv.slice(2),
+  function (url, done) {
+    get(url, (res) => {
+      res
+        .on("data", (chunk) => {})
+        .on("end", () => done(null))
+        .on("error", done);
+    }).on("error", done);
+  },
+  function (err) {
+    if (err) console.error(err);
+  }
+);
