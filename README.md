@@ -38,7 +38,7 @@ Using your preferred editor, simply create a file to write your solution in.
 
 #### 3. Testing your solution
 
-Use the workshop's `run` command to point the workshop at your solution file. Your solution will loaded 
+Use the workshop's `run` command to point the workshop at your solution file. Your solution will be loaded 
 and passed the problem input. This usually won't perform any validation, it will only show the program output.
 
 ```
